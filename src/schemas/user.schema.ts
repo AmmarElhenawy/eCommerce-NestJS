@@ -16,8 +16,7 @@ export class User {
     name: string;
 
     @Prop({
-        type: Number,
-        required: true
+        type: Number
     })
     age: number;
 
@@ -30,10 +29,18 @@ export class User {
     email: string;
 
     @Prop({
+        type: Boolean,
+        required: true,
+    })
+    isActive: boolean;
+
+    @Prop({
         type: String,
         required: true,
         min: [3, 'password must be at least 3 characters'],
-        max: [20, "password must be at most 30 characters"]
+        max: [20, "password must be at most 30 characters"],
+        select: false
+
     })
     password: string;
 
@@ -48,10 +55,10 @@ export class User {
     avatar: string;
 
     @Prop({
-        type: Number,
-        min: [11, "must be at least 11 numbers"]
+        type: String,
+        // min: [11, "must be at least 11 numbers"]
     })
-    phone: number;
+    phone: string;
 
     @Prop({
         type: String,
@@ -59,16 +66,16 @@ export class User {
     address: string;
 
     @Prop({
-        required: true,
+        // required: true,
         // enum:[true,false]
     })
     active: boolean;
 
     @Prop({
-        type: String,
-        // required:true
+
+
     })
-    verfictionCode: string;
+    verfictionCode?: number;
 
     @Prop(
         {
